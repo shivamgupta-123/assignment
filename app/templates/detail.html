@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+    <style>
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+            border-spacing: 5px;
+        }
+        th, td{
+            padding: 15px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<center>
+    <h1>Your Detail</h1>
+    <TABLE style="margin-bottom: 2%; width: 100%;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>EMAIL</th>
+                    <th>Full Name</th>
+                    <th>Age</th>
+                    <th>Image</th>
+
+                </tr>
+                {% if detail %}
+                <tr>
+                    <td>{{ detail.id | escape }}</td>
+                    <td>{{ detail.email | escape }}</td>
+                    <td>{{ detail.first_name | escape }} {{ detail.last_name | escape }}</td>
+                    <td>{{ detail.Age | escape }}</td>
+                    <td><img src="{{ detail.image.url }}" style="width: 90px; height: 90px;" alt=""></td>
+                </tr>
+                {% endif %}
+                <br>
+            </thead>
+        </TABLE>
+    <a href="login/logout"><button>Logout</button></a>
+</center>
+</body>
+</html>
